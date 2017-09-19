@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	 <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto - complete</title>
+   	<link rel="stylesheet" type="text/css" href="css/style.css">
+   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link href="dist/easy-autocomplete.min.css" rel="stylesheet" type="text/css">
+		<script src="lib/jquery-1.11.2.min.js"></script>
+		<script src="dist/jquery.easy-autocomplete.min.js" type="text/javascript" ></script>
+
+	</head>
+	<body>
+<div class="app app__layout">
+ <header>
+        <span class="header__icon">
+          <svg class="menu__icon no--select" width="24px" height="24px" viewBox="0 0 48 48" fill="#fff">
+            <path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path>
+          </svg>
+        </span>
+        <span class="header__title no--select">Auto Complete</span>
+      </header>
+       <div class="menu">
+        <div class="menu__header"></div>
+        <ul class="menu__list">
+          	<li><a href="index.html">Auto Complete</a></li>
+            <li><a href="gesture.html">Gesture</a></li>
+            <li><a href="pinchTozoom.html">Pinch To Zoom</a></li>
+            <li><a href="dragndrop.html">Drag and Drop</a></li>
+            <li><a href="keybordZoom.html"> ZoomIN and ZoomOUT </a></li>
+            <li><a href="A2HS2/index.html"> Add To Home Screen </a></li>
+           	<li><a href="app/index.html"> Push Notification </a></li>
+						<li><a href="charting_library/index.html"> charting library </a></li>
+            <li><a href="charts.html"> Charting History </a></li>
+            <li><a href="dropdown/index.html"> Dropdown </a></li>
+            <li><a href="amp-pwa-demo/index.html"> AMP-PWA </a></li>
+         </ul>
+      </div>
+        <div class="menu__overlay"></div>
+
+           <div class="app__content">
+            <section class="section">
+		<h3> Auto complete </h3>
+
+ 		<form action="" autocomplete="on">
+ 		 <div class="form-group">
+      <label for="country">Country:</label>
+      <input type="text" class="form-control" name="data-json" id="data-json">
+    </div>
+    <div class="form-group">
+      <label for="country">Scrip:</label>
+      <input type="text" class="form-control" name="data-json-scrip" id="data-json-scrip">
+    </div>
+
+    <button type="submit" class="btn btn-success">Success</button>
+		<!-- Country: <input id="data-json" /> -->
+		</form>
+		</section>
+</div>
+
+</div>
+	</body>
+<script>
+
+		var options = {
+			url: "resources/countries.json",
+
+			getValue: "name",
+
+			list: {
+				match: {
+					enabled: true
+				}
+			}
+		};
+		$("#data-json").easyAutocomplete(options);
+
+		</script>
+		<script>
+
+		var options = {
+			url: "resources/scrip.json",
+
+			getValue: "name",
+
+			list: {
+				match: {
+					enabled: true
+				}
+			}
+		};
+		$("#data-json-scrip").easyAutocomplete(options);
+
+		</script>
+		 <script src="./js/app.js"></script>
+    <script src="./js/toast.js"></script>
+    <script src="./js/offline.js"></script>
+    <script src="./js/menu.js"></script>
+    <script src="./js/latest.js"></script>
+</html>

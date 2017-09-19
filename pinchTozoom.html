@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	 <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinch to zoom</title>
+   	<link rel="stylesheet" type="text/css" href="css/style.css">
+   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="http://localhost/yyPWA/dist/easy-autocomplete.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://openlayers.org/en/v4.1.1/css/ol.css" type="text/css">
+		<script src="http://localhost/yyPWA/lib/jquery-1.11.2.min.js"></script>
+		<script src="http://localhost/yyPWA/dist/jquery.easy-autocomplete.min.js" type="text/javascript" ></script>
+    	<script src="https://openlayers.org/en/v4.1.1/build/ol.js"></script>
+	</head>
+	<body>
+<div class="app app__layout">
+ <header>
+        <span class="header__icon">
+          <svg class="menu__icon no--select" width="24px" height="24px" viewBox="0 0 48 48" fill="#fff">
+            <path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path>
+          </svg>
+        </span>
+
+        <span class="header__title no--select">Pinch to zoom</span>
+      </header>
+       <div class="menu">
+        <div class="menu__header"></div>
+				<ul class="menu__list">
+          	<li><a href="index.html">Auto Complete</a></li>
+            <li><a href="gesture.html">Gesture</a></li>
+            <li><a href="pinchTozoom.html">Pinch To Zoom</a></li>
+            <li><a href="dragndrop.html">Drag and Drop</a></li>
+            <li><a href="keybordZoom.html"> ZoomIN and ZoomOUT </a></li>
+            <li><a href="A2HS2/index.html"> Add To Home Screen </a></li>
+           	<li><a href="app/index.html"> Push Notification </a></li>
+						<li><a href="charting_library/index.html"> charting library </a></li>
+            <li><a href="charts.html"> Charting History </a></li>
+            <li><a href="dropdown/index.html"> Dropdown </a></li>
+            <li><a href="amp-pwa-demo/index.html"> AMP-PWA </a></li>
+         </ul>
+      </div>
+        <div class="menu__overlay"></div>
+
+           <div class="app__content">
+            <section class="section">
+		<h3> Pinch to zoom </h3>
+
+
+		</section>
+</div>
+		  <div id="map" class="map"></div>
+</div>
+	</body>
+<script>
+      var map = new ol.Map({
+        interactions: ol.interaction.defaults({pinchZoom: false}).extend([
+          new ol.interaction.PinchZoom({
+            constrainResolution: true // force zooming to a integer zoom
+          })
+        ]),
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        target: 'map',
+        view: new ol.View({
+          center: [0, 0],
+          zoom: 2
+        })
+      });
+    </script>
+	 <script src="./js/app.js"></script>
+    <script src="./js/toast.js"></script>
+    <script src="./js/offline.js"></script>
+    <script src="./js/menu.js"></script>
+    <script src="./js/latest.js"></script>
+</html>

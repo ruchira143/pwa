@@ -1,0 +1,106 @@
+<!--
+  ## Introduction
+
+  An accordion provides a way for viewers to have a glance at the outline of the content and jump to a section or their choice at their will.
+-->
+<!-- -->
+<!doctype html>
+<html ⚡>
+<head>
+  <meta charset="utf-8">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <!-- ## Setup -->
+  <!--
+    Import the `amp-accordion` component.
+  -->
+  <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
+  <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+  <link rel="canonical" href="https://ampbyexample.com/components/amp-accordion/">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  <style amp-custom>
+  amp-accordion section[expanded] .show-more {
+    display: none;
+  }
+  amp-accordion section:not([expanded]) .show-less {
+    display: none;
+  }
+  .nested-accordion h4 {
+    font-size: 14px;
+    background-color: #ddd;
+  }
+  amp-accordion#hidden-header section[expanded] h4 {
+    border: none;
+  }
+</style>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="amp-pwa-sec">
+    <h2 class="amp-pwa-title">AMP & PWA Demo</h2>
+    <div class="amp-pwa-sec-inner">
+  <amp-accordion>
+    <section expanded>
+      <h4>Section 1</h4>
+      <div class="amp-pwa-info-sec">
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+       </div>
+    </section>
+    <section>
+      <h4>Section 2</h4>
+      <div class="amp-pwa-info-sec">
+        <p>Bunch of even more awesome content. This time in a <code>&lt;div&gt;</code>.</p>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+      </div>
+    </section>
+    <section>
+      <h4>Section 3</h4>
+      <div class="amp-pwa-info-sec">
+        <figure>
+          <amp-img src="img/logo_old.png" width="178" height="80" alt="an image"></amp-img>
+          <figcaption>Images work as well.</figcaption>
+        </figure>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    </div>
+    </section>
+  </amp-accordion>
+
+    <amp-accordion disable-session-states>
+      <section>
+        <h4><span class="show-more">Show more</span> <span class="show-less">Show less</span></h4>
+        <div class="amp-pwa-info-sec">
+          <p>Id lacus amet. Aliquam eos nunc ut scelerisque lacinia, eu rutrum id, vestibulum aliqua vivamus luctus eu rhoncus ut, sodales id. Velit lacus, fermentum neque et sagittis, ac venenatis volutpat, dolore neque feugiat proin fermentum odio, odio arcu in eu wisi. </p>
+        </div>
+      </section>
+    </amp-accordion>
+    <!-- Here is another example, which hides the "Show more" button once it's been clicked. -->
+
+    <!-- ## Nested Accordions -->
+
+    <amp-accordion disable-session-states>
+      <section>
+        <h4>Nested Section</h4>
+        <amp-accordion class="nested-accordion">
+          <section>
+            <h4>Nested Section 2.1</h4>
+            <div class="amp-pwa-info-sec">
+              <p>Bunch of content.</p>
+            </div>
+          </section>
+          <section>
+            <h4>Nested Section 2.2</h4>
+            <div class="amp-pwa-info-sec">
+              <p>Bunch of more content.</p>
+            </div>
+          </section>
+        </amp-accordion>
+      </section>
+    </amp-accordion>
+  </div>
+  </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.sortable-ghost {
+	opacity: .2;
+}
+#foo .sortable-drag {
+	background: #daf4ff;
+}
+.block__list li { cursor: move; }
+.block__list_words li {
+		background-color: #fff;
+		padding: 10px 40px;
+	}	
+.block__list_words li:first-letter {
+			text-transform: uppercase;
+		}
+#nested ul li {
+	background-color: rgba(0,0,0,.05);
+}
+.menu__list li a {
+    padding: 12px;
+    }

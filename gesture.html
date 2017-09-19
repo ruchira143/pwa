@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gesture</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="vendor/style.css">
+  <link rel="stylesheet" href="vendor/swipe-to-delete.css">
+  <link rel="stylesheet" type="text/css" href="css/responsive.css">
+  <style>
+  .container {
+    padding-right: 456px;
+  }
+  </style>
+</head>
+<body>
+    <div class="app app__layout">
+      <header>
+        <span class="header__icon"  onclick="header();">
+          <svg class="menu__icon no--select" width="24px" height="24px" viewBox="0 0 48 48" fill="#fff">
+            <path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path>
+          </svg>
+        </span>
+
+        <span class="header__title no--select">Gesture</span>
+      </header>
+<div  onclick="clickme()">
+      <div class="menu">
+        <div class="menu__header"></div>
+        <ul class="menu__list">
+          	<li><a href="index.html">Auto Complete</a></li>
+            <li><a href="gesture.html">Gesture</a></li>
+            <li><a href="pinchTozoom.html">Pinch To Zoom</a></li>
+            <li><a href="dragndrop.html">Drag and Drop</a></li>
+            <li><a href="keybordZoom.html"> ZoomIN and ZoomOUT </a></li>
+            <li><a href="A2HS2/index.html"> Add To Home Screen </a></li>
+           	<li><a href="app/index.html"> Push Notification </a></li>
+						<li><a href="charting_library/index.html"> charting library </a></li>
+            <li><a href="charts.html"> Charting History </a></li>
+            <li><a href="dropdown/index.html"> Dropdown </a></li>
+            <li><a href="amp-pwa-demo/index.html"> AMP-PWA </a></li>
+         </ul>
+      </div>
+
+      <div class="menu__overlay"></div>
+
+      <div class="app__content" >
+
+        <section class="section"  id='listbar'>
+          <h3 style='margin-left: 16px;'> Gesture </h3>
+
+
+<main class="container">
+	<div class="panel panel-default" >
+		<div class="panel-heading">
+			<h1 class="panel-title">Messages <span class="glyphicon glyphicon-repeat pull-right js-repeat"></span></h1>
+		</div>
+		<div class="panel-body text-info">Swipe a row and it is deleted.</div>
+		<div class="js-content list-group"> </div>
+	</div>
+</main>
+        </section>
+        <!-- Toast msg's  -->
+        <div class="toast__container"></div>
+      </div>
+    </div>
+  </div>
+<script>
+
+if (document.documentElement.clientWidth < 900) {
+function clickme(){
+$("#listbar").show();
+}
+function header(){
+  $("#listbar").hide();
+}
+}
+</script>
+    <script src="./js/app.js"></script>
+    <script src="./js/toast.js"></script>
+    <script src="./js/offline.js"></script>
+    <script src="./js/menu.js"></script>
+    <script src="./js/latest.js"></script>
+    <script src="vendor/jquery.min.js"></script>
+	<script src="vendor/underscore-min.js"></script>
+	<script src="vendor/backbone-min.js"></script>
+	<script src="vendor/backbone.marionette.min.js"></script>
+	<script src="vendor/swipe-to-delete.js"></script>
+	<script src="vendor/app-swipe.js"></script>
+	</body>
+	</html>

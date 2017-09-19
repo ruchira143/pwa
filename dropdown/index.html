@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script> 
+	<script src="https://rawgithub.com/angular-ui/angular-ui/master/build/angular-ui.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Test</a>
+    </div>
+    <ul class="nav navbar-nav" ng-app="formDemo" ng-controller="LocationFormCtrl">
+      <li class="dropdown edit-dropdown"><a class="dropdown-toggle">Page 1 <span class="caret"></span></a>
+        <ul class="dropdown-menu edit-save-menu">
+        	<li><div class="field"><a click-to-edit="location.region" href=""></a></div></li>
+        	<li><div class="field"><a click-to-edit="location.city" href=""></a></div></li>
+        	<li><div class="field"><a click-to-edit="location.suburb" href=""></a></div></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+// http://icelab.com.au/articles/levelling-up-with-angularjs-building-a-reusable-click-to-edit-directive/
+
+angular.module("formDemo", [])
+
+.controller("LocationFormCtrl", function ($scope) {
+    $scope.location = {
+        region: "Wellington Region",
+        city: "Wellington",
+        suburb: "Mt. Cook"
+    };
+})
+
+.directive("clickToEdit", function () {
+    var editorTemplate = '' +
+        '<div class="click-to-edit">' +
+            '<div ng-hide="view.editorEnabled">' +
+                '<a href="">{{value}}</a>' +
+                '<a class="button tiny" ng-click="enableEditor()"><i class="fa fa-pencil" aria-hidden="true"></i></a>' +
+            '</div>' +
+            '<div ng-show="view.editorEnabled">' +
+                '<input type="text" class="small-12.columns" ng-model="view.editableValue">' +
+                '<a class="button tiny" href="#" ng-click="save()"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>' +
+                '   ' +
+                '<a class="button tiny" ng-click="disableEditor()"><i class="fa fa-times" aria-hidden="true"></i></a>' +
+            '</div>' +
+        '</div>';
+
+    return {
+        restrict: "A",
+        replace: true,
+        template: editorTemplate,
+        scope: {
+            value: "=clickToEdit",
+        },
+        link: function (scope, element, attrs) {
+            scope.view = {
+                editableValue: scope.value,
+                editorEnabled: false
+            };
+
+            scope.enableEditor = function () {
+                scope.view.editorEnabled = true;
+                scope.view.editableValue = scope.value;
+                setTimeout(function () {
+                    element.find('input')[0].focus();
+                    //element.find('input').focus().select(); // w/ jQuery
+                });
+            };
+
+            scope.disableEditor = function () {
+                scope.view.editorEnabled = false;
+            };
+
+            scope.save = function () {
+                scope.value = scope.view.editableValue;
+                scope.disableEditor();
+            };
+
+        }
+    };
+});
+
+
+/*dropdown aviod hide*/
+$(document).ready(function(){
+	$('.dropdown-toggle').on('click', function(e){
+
+    $(".edit-save-menu").toggle();
+});
+});
+</script>
+</body>
+</html>

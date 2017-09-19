@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZoomIN and ZoomOUT</title>
+  <link href="css/app.css" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <style>
+  #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+  #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+  #sortable li span { position: absolute; margin-left: -1.3em; }
+  </style>
+</head>
+<body>
+    <div class="app app__layout">
+      <header>
+        <span class="header__icon">
+          <svg class="menu__icon no--select" width="24px" height="24px" viewBox="0 0 48 48" fill="#fff">
+            <path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path>
+          </svg>
+        </span>
+
+        <span class="header__title no--select"> ZoomIN and ZoomOUT </span>
+      </header>
+
+      <div class="menu">
+        <div class="menu__header"></div>
+        <ul class="menu__list">
+          	<li><a href="index.html">Auto Complete</a></li>
+            <li><a href="gesture.html">Gesture</a></li>
+            <li><a href="pinchTozoom.html">Pinch To Zoom</a></li>
+            <li><a href="dragndrop.html">Drag and Drop</a></li>
+            <li><a href="keybordZoom.html"> ZoomIN and ZoomOUT </a></li>
+            <li><a href="A2HS2/index.html"> Add To Home Screen </a></li>
+           	<li><a href="app/index.html"> Push Notification </a></li>
+						<li><a href="charting_library/index.html"> charting library </a></li>
+            <li><a href="charts.html"> Charting History </a></li>
+            <li><a href="dropdown/index.html"> Dropdown </a></li>
+            <li><a href="amp-pwa-demo/index.html"> AMP-PWA </a></li>
+         </ul>
+      </div>
+
+      <div class="menu__overlay"></div>
+
+      <div class="app__content">
+
+        <section class="section">
+         <div id = "content" >
+          <img class="profile-pic" src="/yyPWA/images/books.png">
+          <hr />
+        I am the founder of this site, and also work as an Independent Consultant.
+        <br />
+        I completed my graduation from Mumbai University with Bachelor’s Degree in Computer
+        Engineering.
+        <br />
+        I am active member on the ASP.Net forums with "All Star" level ranking. Click here
+        to view my profile.
+        <hr />
+  	  </div>
+
+        </section>
+        <!-- Toast msg's  -->
+        <div class="toast__container"></div>
+      </div>
+    </div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+
+
+
+
+		var keyCodes = {
+					left: 37,
+					up: 38,
+					right: 39,
+					down: 40
+						};
+						function zoomIn(e){
+
+						var size = parseInt($('#content').css("font-size"));
+						var imagesize = $('img').width();
+
+						size = size + 2;
+						imagesize = imagesize + 5;
+						 $('#content').css("font-size", size);
+						 $('img').width(imagesize);
+							}
+						function zoomOut(e){
+						var imagesize = $('img').width();
+
+						var size = parseInt($('#content').css("font-size"));
+						size = size - 2;
+						imagesize = imagesize - 5;
+						if (size <= 10) {
+                     	   size = 10;
+                   			 }
+						if (imagesize <= 110) {
+							imagesize = 110;
+	                   			 }
+						$('img').width(imagesize);
+						 $('#content').css("font-size", size);
+						}
+
+		 $(window).keydown(function(e) {
+
+		switch (e.keyCode) {
+			case keyCodes.left:
+			case keyCodes.up:
+			zoomIn(e);
+			return;
+			case keyCodes.right:
+			case keyCodes.down:
+			zoomOut(e);
+			return;
+  }
+});
+    </script>
+
+    <script src="./js/app.js"></script>
+    <script src="./js/toast.js"></script>
+    <script src="./js/offline.js"></script>
+    <script src="./js/menu.js"></script>
+    <script src="./js/latest.js"></script>
+</body>
+</html>

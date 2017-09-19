@@ -1,0 +1,50 @@
+.edit-dropdown, .edit-save-menu{
+	min-width: 195px;
+}
+
+.edit-save-menu.dropdown-menu>li{
+	padding: 10px;
+	display:table;
+	width:100%;
+	float: left;
+}
+
+.edit-save-menu.dropdown-menu>li>a{
+	padding: 0;	
+	display: table-cell;
+	width:92%;
+}
+
+.edit-save-menu.dropdown-menu>li>span{
+	display: table-cell;
+	width:auto;
+	cursor: pointer;
+}
+
+.edit-dropdown .caret{
+	float: right;
+    margin-top: 8px;
+}
+
+body {
+    font-family:"HelveticNeue", sans-serif;
+    font-size: 14px;
+    padding: 20px;
+}
+h2 {
+    color: #999;
+    margin-top: 0;
+}
+.field {
+    margin-bottom: 1em;
+}
+.click-to-edit {
+   display: block;
+    width: 100%;
+
+}
+input {
+    display: initial !important;
+    width: 72%;
+    margin: 0 5px 0 0 !important;
+}
